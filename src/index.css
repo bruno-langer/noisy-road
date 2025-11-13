@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  font-family: monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: rgba(38, 38, 38, 0.87);
+  background-color: #eee;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.audio-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  height: 100%;
+  width: var(--progress, 0%);
+  background: linear-gradient(
+    to right,
+    var(--bar-color) 0%,
+    color-mix(in srgb, var(--bar-color), black 40%) 100%
+  );
+  transition: width 0.1s linear;
+}
